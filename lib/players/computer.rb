@@ -1,16 +1,17 @@
 module Players
   class Computer < Player
-    def move
-      puts "Please enter 1-9:"
+    attr_reader :token
+    def initialize(token)
+      @token = token
+    end
+    
+    def move(board)
+      puts "Please enter a space on the board 1-9:"
       user_input = gets.strip
-      #index = input_to_index(user_input)
-      
-      # if valid_move?(index) 
-      #   move(index, current_player)
-      #   display_board
-      # else
-      #   m
-      # end
+      index = user_input.to_i - 1
+      @board[index] = self.token
+      index
+      binding.pry
     end
   end
 end

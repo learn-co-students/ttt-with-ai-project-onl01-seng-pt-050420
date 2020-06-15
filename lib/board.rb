@@ -27,7 +27,6 @@ class Board
   end
 
   def turn_count
-    #binding.pry
     @cells.count{|cell| cell == "X" || cell == "O"}
   end
 
@@ -39,7 +38,11 @@ class Board
     index.to_i.between?(1,9) && !(taken?(index))
   end
 
-  # def update(position, )
-  # end
+  def update(index, player)
+    if valid_move?(index) && !taken?(index)
+      @cells[index.to_i - 1] = player.token
+    end
+  end
 
+  
 end
