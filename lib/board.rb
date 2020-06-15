@@ -1,3 +1,5 @@
+
+require 'pry'
 class Board
   attr_accessor :cells
   def initialize
@@ -25,7 +27,8 @@ class Board
   end
 
   def turn_count
-    @cells.count{|token| token == "X" || token == "O"}
+    #binding.pry
+    @cells.count{|cell| cell == "X" || cell == "O"}
   end
 
   def taken?(position)
