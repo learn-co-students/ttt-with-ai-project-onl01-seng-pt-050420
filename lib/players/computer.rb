@@ -1,17 +1,25 @@
 module Players
   class Computer < Player
-    attr_reader :token
-    def initialize(token)
-      @token = token
-    end
-    
     def move(board)
-      puts "Please enter a space on the board 1-9:"
-      user_input = gets.strip
-      index = user_input.to_i - 1
-      @board[index] = self.token
-      index
-      binding.pry
+      if board.cells[4] == " "
+        "5"
+      elsif board.cells[0] == " "
+        "1"
+      elsif board.cells[2] == " "
+        "3"
+      elsif board.cells[6] == " "
+        "7"
+      elsif board.cells[8] == " "
+        "9"
+      elsif board.cells[1] == " "
+        "2"
+      elsif board.cells[3] == " "
+        "4"
+      elsif board.cells[5] == " "
+        "6"
+      elsif board.cells[7] == " "
+        "8"
+      end
     end
   end
 end

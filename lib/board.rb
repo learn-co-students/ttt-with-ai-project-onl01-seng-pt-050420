@@ -38,11 +38,7 @@ class Board
     index.to_i.between?(1,9) && !(taken?(index))
   end
 
-  def update(index, player)
-    if valid_move?(index) && !taken?(index)
-      @cells[index.to_i - 1] = player.token
-    end
+  def update(position, player)
+    self.cells[position.to_i-1] = player.token
   end
-
-  
 end
