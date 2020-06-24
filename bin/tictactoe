@@ -2,4 +2,46 @@
 
 require_relative '../config/environment'
 
-Game.new
+
+
+def start
+  system('clear')
+  puts('TicTacToe with AI')
+  puts('')
+  puts('Do you want to play against another (1) person, or play against the (2) computer?')
+  puts('')
+  user_input = gets.strip.to_i
+  if user_input == 1
+    user_game
+  else
+    system('clear')
+    puts('TicTacToe with AI')
+    puts('')
+    puts('Do you want to (1) start or let the (2) computer start?')
+    puts('')
+    second_input = gets.strip.to_i
+    if second_input == 1
+      computer_game(Players::Human.new('X'), Players::Computer.new('O'))
+    else
+      computer_game(Players::Computer.new('X'), Players::Human.new('O'))
+    end
+    end
+end
+
+def user_game
+  game = Game.new
+  system('clear')
+  puts('TicTacToe with AI')
+  puts('')
+  game.play
+end
+
+def computer_game(player_1, player_2)
+  game = Game.new(player_1, player_2)
+  system('clear')
+  puts('TicTacToe with AI')
+  puts('')
+  game.play
+end
+
+start

@@ -64,7 +64,7 @@ class Game
 
   def turn
     puts('Choose a position on the board between 1 and 9')
-    user_input = current_player.move(current_player.token)
+    user_input = current_player.move(@board)
     turn if valid_move?(user_input.to_i-1) == false
     @board.update(user_input, current_player)
   end
@@ -73,8 +73,10 @@ class Game
     turn until over?
     if won?
       winner_of_game = winner
+      system('clear')
       puts "Congratulations #{winner_of_game}!"
     elsif draw?
+      system('clear')
       puts "Cat's Game!"
     end
   end
