@@ -24,4 +24,15 @@ class Board
   def full?
     cells.all?{|character| character == "X" || character == "O"}
   end
+  
+  def turn_count
+    cells.count{|char| char=="X" || char=="O"}
+  end
+  
+  def taken?(input)
+    position(input)=="X" || position(input)=="O"
+  end
+  
+  def valid_move?(input)
+  end
 end
