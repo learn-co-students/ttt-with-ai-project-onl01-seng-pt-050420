@@ -8,6 +8,7 @@ class Board
 
     def reset!
         @cells = Array.new(9, " ")
+        display
     end
 
     def display
